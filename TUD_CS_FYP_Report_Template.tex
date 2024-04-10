@@ -1,0 +1,176 @@
+\documentclass[]{TUD_CS_FYP_Report}
+
+% TABLE OF CONTENTS STUFF
+\usepackage{tocloft}
+\setcounter{tocdepth}{4}
+\setcounter
+{secnumdepth}{4}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsubsecfont}{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+
+% COLOURS FOR LINKS AND CITATIONS ETC
+\definecolor{tud_blue}{RGB}{5,77,109}
+\definecolor{light_tud_blue}{RGB}{67,132,161}
+\definecolor{dark_tud_blue}{RGB}{2,50,71}
+\definecolor{light_grey}{gray}{0.9707}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=tud_blue,
+    filecolor=light_tud_blue,      
+    urlcolor=light_tud_blue,
+    citecolor=light_tud_blue
+}
+
+% CODE LISTING CONFIG
+
+% REFERENCE STYLE
+\usepackage[backend=biber,style=vancouver]{biblatex}
+\addbibresource{references.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % BEGIN DOCUMENT %                
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\studentname{Your Name}         % Edit with your name
+\def\studentid{C12345678}           % Edit with your student number
+\def\projecttitle{Your Project Title} % Edit with you project title
+\def\supervisorname{Dr. Supervisor} % Edit with your supervisor
+
+\begin{document}
+\maketitle
+
+\abstract
+Summary of your project
+
+\chapter*{Declaration}
+I hereby declare that the work described in this dissertation is, except where otherwise stated, entirely my own work and has not been submitted as an exercise for a degree at this or any
+other university.
+
+\vspace{0.5cm}
+\begin{flushright}
+    \textit{Your Name}\\
+    \vspace{0.25cm}
+    \today
+\end{flushright}
+\pagebreak
+
+\chapter*{Acknowledgements}
+Thank whoever
+
+\pagebreak
+\tableofcontents
+\pagebreak
+\listoffigures
+\pagebreak
+
+\chapter{Tutorial}
+\section{Introductions}
+This is the best template you can use for your FYP (in my opinion). Do \textbf{NOT} use Word, use \LaTeX\ instead and here's why:
+
+\begin{itemize}
+    \item Looks pretty.
+    \item Citations and referencing sections in your report are 100x easier.
+    \item You can move things around and keep things consistent.
+    \item Code listings are cool looking.
+\end{itemize}
+
+It seems intimidating at first but it isn't too bad once you get the hang of things.
+
+\section{Citations}
+Here is me citing a paper from \texttt{references.bib} \cite{achiam2023gpt}. You can get BibTeX from Google Scholar easily. You can also do footnotes like this.\footnote{\url{https://example.com/}}
+
+\section{Tables}
+This is just a table style I like to use.
+
+\begin{table}[H]
+    \centering
+    \rowcolors{2}{white}{light_grey}  % Alternate row colours
+    \begin{tabular}{l l l}
+        \toprule
+        \textbf{Header 1} & \textbf{Header 2} & \textbf{Header 3} \\
+        \midrule
+        data & more data & even more data \\
+        data & more data & even more data \\
+        data & more data & even more data \\
+        data & more data & even more data \\
+        data & more data & even more data \\
+        \bottomrule
+    \end{tabular}
+    \caption{Cool Table}
+    \label{table:1}
+\end{table}
+
+\section{Code Listings}
+ Listing \ref{lst:follow-me} is shown below.
+
+\begin{figure}[H]
+\centering
+\fontsize{11}{11}\selectfont
+\begin{minted}
+[frame=lines,framesep=5mm,baselinestretch=1.2,bgcolor=light_grey,linenos,style=friendly,breaklines,
+label={main.py}
+]{python}
+from typing import Optional
+
+def follow_me(github: Optional[str] = "https://github.com/ronan-s1") -> None:
+    print(f"FOLLOW ME: {github}")
+
+if __name__ == "__main__":
+    follow_me()
+\end{minted}
+\vspace{-0.6cm}
+\captionsetup{type=listing}
+\caption{Python Code Listing}
+\label{lst:follow-me}
+\end{figure}
+\vspace{-0.43cm}
+
+You can change the style and language simply as shown in Listing \ref{lst:follow-me-2}.
+
+\begin{figure}[H]
+\centering
+\fontsize{11}{11}\selectfont
+\begin{minted}
+[frame=lines,framesep=5mm,baselinestretch=1.2,bgcolor=light_grey,linenos,style=emacs,breaklines,
+label={main.ml}
+]{ocaml}
+let follow_me ?(github : string option) () =
+  let github_url =
+    match github with
+    | Some username -> "https://github.com/" ^ username
+    | None -> "https://github.com/ronan-s1"
+  in
+  print_endline ("FOLLOW ME: " ^ github_url)
+
+let () =
+  follow_me ()
+\end{minted}
+\vspace{-0.6cm}
+\captionsetup{type=listing}
+\caption{OCaml Code Listing}
+\label{lst:follow-me-2}
+\end{figure}
+\vspace{-0.43cm}
+
+\section{Inserting Images}
+You can see a dangerous cat in Figure \ref{fig:dangerous-cat}. You can insert images by pasting them in too.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.25\linewidth]{images/cat.png}
+    \caption{Dangerous Cat}
+    \label{fig:dangerous-cat}
+\end{figure}
+
+\section{This is a Section}
+\subsection{This is a Sub Section}
+\subsubsection{This is a Sub Sub Section}
+
+% BIBLIOGRAPHY
+\printbibliography
+\end{document}

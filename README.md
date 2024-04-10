@@ -1,2 +1,4 @@
 # TU-Dublin-CS-FYP-Template
-A Final Year Project LaTeX Template for Computer Science students
+View the template [here](https://www.overleaf.com/read/qtfhsjhtfgpb#1a177f).
+
+compiler: pdfLaTeX
